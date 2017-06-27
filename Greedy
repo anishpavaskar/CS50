@@ -1,0 +1,53 @@
+#include<cs50.h>
+#include<stdio.h>
+#include<math.h>
+
+int main(void)
+{
+float cash,pennies=1,quarter=25,dime=10,nickel=5;
+int counter=0;
+
+//prompting the user for how much change is owed to them
+do
+{
+printf(” How much change is owed?\n”);
+cash=GetFloat();
+}
+while(cash <= 0 );
+
+int balance= roundf(cash*100);
+
+while(balance >= quarter) //quarter
+
+{
+counter++;
+balance=balance-quarter;
+
+}
+
+while(balance >= dime) //dime
+
+{
+counter++;
+balance=balance-dime;
+
+}
+
+while(balance >= nickel) //nickel
+
+{
+counter++;
+balance=balance-nickel;
+
+}
+
+while(balance >= pennies) //pennies
+{
+counter++;
+balance=balance-pennies;
+
+}
+
+printf(“%d\n”,counter);
+
+}
